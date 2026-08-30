@@ -48,7 +48,9 @@ const og = new URL(withBase(ogImage), Astro.site);
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={og.href} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon-32.png')} type="image/png" sizes="32x32" />
+    <link rel="icon" href={withBase('/favicon-48.png')} type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
   </head>
   <body>
@@ -56,8 +58,7 @@ const og = new URL(withBase(ogImage), Astro.site);
     <header class:list={['site-nav', { 'is-cover': cover }]} data-nav>
       <div class="nav-inner">
         <a href={withBase('/')} class="brand" aria-label="VRG Gieseritz Startseite">
-          <span class="brand-mark" aria-hidden="true"><span></span></span>
-          VRG <small>Gieseritz</small>
+          <img class="brand-logo" src={withBase('/logo-nav.png')} alt="Voltigier- und Reitgemeinschaft Gieseritz e. V." width="68" height="68" />
         </a>
         <nav id="site-menu" class="nav-links" aria-label="Hauptnavigation">
           <a href={withBase('/voltigieren')} aria-current={isCurrent('/voltigieren') ? 'page' : undefined}>Voltigieren</a>
@@ -77,9 +78,8 @@ const og = new URL(withBase(ogImage), Astro.site);
     <footer class="site-footer">
       <div class="page-width footer-grid">
         <div>
-          <a href={withBase('/')} class="brand">
-            <span class="brand-mark" aria-hidden="true"><span></span></span>
-            VRG <small style="color: var(--straw);">Gieseritz</small>
+          <a href={withBase('/')} class="brand" aria-label="VRG Gieseritz Startseite">
+            <img class="brand-logo" src={withBase('/logo-nav.png')} alt="Voltigier- und Reitgemeinschaft Gieseritz e. V." width="92" height="92" />
           </a>
           <p class="footer-meta">{site.legalName}</p>
           <p class="footer-meta">{addressLine}</p>
