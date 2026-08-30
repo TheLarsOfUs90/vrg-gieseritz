@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+---
+
+<Layout
+  title="Pferdetag — VRG Gieseritz"
+  description="Pferdetag und Fuchsjagd der VRG Gieseritz: Geländeritt, Kutschgespanne, Jagdhornbläser."
+  ogImage={site.photos.pferdetag.src}
+>
+  <section class="page-hero page-width">
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker reveal">Herbst</p>
+        <h1 class="section-title reveal d1">Ein Tag für Reiter, Gespanne und das Dorf.</h1>
+        <p class="lede reveal d2">Die Fuchsjagd war das Saisonende. Heute heißt der Tag Pferdetag — dieselbe Landschaft, mehr Kutschen, dasselbe Essen am Abend.</p>
+      </div>
+      <div>
+        <div class="frame reveal d1" style="aspect-ratio: 4 / 3;">
+          <img src={withBase(site.photos.pferdetag.src)} alt={site.photos.pferdetag.alt} width="1000" height="750" />
+        </div>
+        <p class="caption">Gelände Gieseritz / Umfelde</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width year-grid">
+      <div class="reveal">
+        <p class="kicker">Ablauf</p>
+        <h2 class="section-title">So verläuft der Tag.</h2>
+      </div>
+      <ol class="timeline reveal d1">
+        <li>
+          <time>01</time>
+          <div>
+            <strong>Ausritt</strong>
+            <p class="mute">Der Master führt die Meute etwa eine Stunde durch Wald und Flur. Hindernisse, keine Hetze.</p>
+          </div>
+        </li>
+        <li>
+          <time>02</time>
+          <div>
+            <strong>Jagdvesper</strong>
+            <p class="mute">Pferde verschnaufen. Gäste und Reiter essen. Wer zuschaut, darf mitfeiern — Fahrgelegenheiten stehen bereit.</p>
+          </div>
+        </li>
+        <li>
+          <time>03</time>
+          <div>
+            <strong>Gespanne</strong>
+            <p class="mute">Eigene Strecke für Kutschen. Am Schluss Geschicklichkeitsfahren auf dem Reitplatz in Umfelde.</p>
+          </div>
+        </li>
+        <li>
+          <time>04</time>
+          <div>
+            <strong>Halali</strong>
+            <p class="mute">Jagdhornbläser, Rückkehr nach Gieseritz, Essen, Jagdgericht mit Strafen, die niemand ernst fürchtet.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="page-width card-grid">
+      <div class="frame reveal" style="aspect-ratio: 4 / 5;">
+        <img src={withBase(site.photos.pferdetagPortrait.src)} alt={site.photos.pferdetagPortrait.alt} width="700" height="875" />
+      </div>
+      <div class="frame reveal d1" style="aspect-ratio: 4 / 5;">
+        <img src={withBase(site.photos.richterwagen.src)} alt={site.photos.richterwagen.alt} width="700" height="875" />
+      </div>
+      <div class="frame reveal d2" style="aspect-ratio: 4 / 5;">
+        <img src={withBase(site.photos.pferdetagFeld.src)} alt={site.photos.pferdetagFeld.alt} width="700" height="875" />
+      </div>
+    </div>
+    <div class="page-width prose reveal" style="margin-top: 48px;">
+      <p>Früher ermittelte ein Galopprennen den nächsten „Fuchs“. Heute zählen Sicherheit und die Gespanne mit. Anmeldungen von Reitern und Gespannen nimmt der Vorstand an: {site.chair.name}, <a href={site.chair.tel}>{site.chair.phone}</a>.</p>
+    </div>
+  </section>
+</Layout>

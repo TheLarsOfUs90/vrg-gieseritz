@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+---
+
+<Layout
+  title="Voltigieren — VRG Gieseritz"
+  description="Voltigieren in Gieseritz: Kunstturnen auf dem Pferd, Schritt- und Galoppgruppe, Einstieg ab vier Jahren."
+  ogImage={site.photos.vaulting.src}
+>
+  <section class="page-hero page-width">
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker reveal">Voltigieren</p>
+        <h1 class="section-title reveal d1">Gymnastik zu Pferd — vom ersten Griff bis zum Galopp.</h1>
+        <p class="lede reveal d2">Das Pferd trägt keinen Sattel. Es trägt einen Gurt mit Schlaufen. Es läuft im Kreis, gehalten an der Longe.</p>
+      </div>
+      <div>
+        <div class="frame reveal d1" style="aspect-ratio: 4 / 3;">
+          <img src={withBase(site.photos.vaulting.src)} alt={site.photos.vaulting.alt} width="900" height="675" />
+        </div>
+        <p class="caption">Reitplatz Gieseritz, 2006</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width prose reveal">
+      <p>Als Turniersport gibt es Einzel-, Doppel- und Gruppenvoltigieren. Ein Voltigierpferd muss ruhig, gutmütig und nervenstark sein. Bei uns steigen Kinder ab vier Jahren ein.</p>
+      <p>Anfangs läuft das Tier im Schritt. Ziel ist, dass die Übungen im Galopp sitzen. Nicht jede:r will Wettkampf — wer nur zum Spaß turnt, ist genauso richtig wie die, die den Nervenkitzel suchen.</p>
+    </div>
+    <div class="page-width card-grid" style="margin-top: 56px;">
+      <div class="person reveal">
+        <p class="kicker">Gruppe</p>
+        <h3>Schritt</h3>
+        <p class="mute">Grundlagen, Pferd kennenlernen, erste Figuren. Hier beginnt fast jede Geschichte.</p>
+      </div>
+      <div class="person reveal d1">
+        <p class="kicker">Gruppe</p>
+        <h3>Galopp</h3>
+        <p class="mute">Für Fortgeschrittene. Pflicht, Kür, und wer will: der Wettkampf.</p>
+      </div>
+      <div class="person reveal d2">
+        <p class="kicker">Pferd</p>
+        <h3>Connar</h3>
+        <p class="mute">Hannoveraner Sportpferd. Partner, nicht Gerät — Pflege und Charakter gehören zum Training.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="page-width split">
+      <div>
+        <div class="frame reveal" style="aspect-ratio: 4 / 5;">
+          <img src={withBase(site.photos.connar.src)} alt={site.photos.connar.alt} width="700" height="875" />
+        </div>
+        <p class="caption">Connar</p>
+      </div>
+      <div class="prose reveal d1">
+        <h2>Anmeldung</h2>
+        <p>Unsere Voltigiergruppe ist seit Jahren gut besucht. Kinder und Jugendliche lernen unter pädagogischer Anleitung den Umgang mit dem Pferd — nicht nur die Figur obenauf.</p>
+        <p>
+          {site.trainers.map((person) => (
+            <>
+              {person.name}, Tel. <a href={person.tel}>{person.phone}</a>
+              <br />
+            </>
+          ))}
+        </p>
+        <p><a class="btn" href={withBase('/mitmachen')}>Zum Einstieg</a></p>
+      </div>
+    </div>
+  </section>
+</Layout>

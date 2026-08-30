@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+
+const [verena] = site.trainers;
+---
+
+<Layout
+  title="VRG Gieseritz — Voltigieren in der Altmark"
+  description={`${site.legalName}. Voltigieren ab ${site.vaultingFromAge} Jahren, Pferdetag und Dorffeste am Reitplatz.`}
+  cover
+  ogImage={site.photos.hero.src}
+>
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src={withBase(site.photos.hero.src)} alt="" width="2896" height="1944" />
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="hero-copy">
+      <p class="kicker reveal">Altmark · Gieseritz · seit {site.founded}</p>
+      <h1 class="display reveal d1">Hier lernen Kinder,<br /><em>dem Pferd zu vertrauen.</em></h1>
+      <p class="lede reveal d2">{site.legalName} — Kunstturnen zu Pferd, Ehrenamt, ein Reitplatz neben der Kirche.</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn" href={withBase('/mitmachen')}>Probetraining</a>
+        <a class="btn-ghost" href={withBase('/voltigieren')}>Was ist Voltigieren?</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width split">
+      <div class="reveal">
+        <p class="kicker">Der Sport</p>
+        <h2 class="section-title">Turnen auf dem Pferd.<br /><em>Kein Sattel.</em></h2>
+      </div>
+      <div class="reveal d1">
+        <p class="lede" style="margin-top: 0;">
+          Das Pferd geht an der Longe im Kreis. Kinder ab vier Jahren halten sich am Gurt, zuerst im Schritt, später im Galopp. Mut kommt langsam. Die Übungsleiterinnen heißen Verena und Ute — man ruft sie an.
+        </p>
+        <p style="margin-top: 28px;"><a class="btn-ghost" href={withBase('/voltigieren')}>Zu den Gruppen</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-ink band">
+    <div class="page-width">
+      <p class="kicker reveal">Drei Türen</p>
+      <h2 class="section-title reveal d1" style="max-width: 14ch; margin-bottom: 48px;">Wonach Sie suchen.</h2>
+      <div class="card-grid">
+        <a href={withBase('/voltigieren')} class="door reveal">
+          <div class="frame"><img src={withBase(site.photos.vaulting.src)} alt={site.photos.vaulting.alt} width="800" height="540" /></div>
+          <h3>Voltigieren</h3>
+          <p>Schrittgruppe, Galoppgruppe, Wettkampf oder nur zum Spaß. Einstieg ab vier Jahren.</p>
+        </a>
+        <a href={withBase('/termine')} class="door reveal d1">
+          <div class="frame"><img src={withBase(site.photos.pferdetag.src)} alt={site.photos.pferdetag.alt} width="800" height="540" /></div>
+          <h3>Pferdetag</h3>
+          <p>Jedes Jahr im Herbst: Wald und Flur, Kutschen, Jagdhornbläser, Vesper, Ausklang.</p>
+        </a>
+        <a href={withBase('/aktivitaeten')} class="door reveal d2">
+          <div class="frame"><img src={withBase(site.photos.maibaum.src)} alt={site.photos.maibaum.alt} width="800" height="540" loading="lazy" /></div>
+          <h3>Feste</h3>
+          <p>Maifeier in den Jahren ohne Turnier. Trainingslager, Auftritte, Weihnachten.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width">
+      <p class="kicker reveal">Der Verein in Zahlen</p>
+      <div class="stat-grid" style="margin-top: 28px;">
+        <div class="stat reveal"><strong>{site.members}</strong><span>Mitglieder</span></div>
+        <div class="stat reveal d1"><strong>{site.children}</strong><span>Kinder und Jugendliche</span></div>
+        <div class="stat reveal d2"><strong>{site.volunteers}</strong><span>ehrenamtliche Hände</span></div>
+        <div class="stat reveal d3"><strong>{site.founded}</strong><span>wieder gegründet</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="page-width year-grid">
+      <div class="reveal">
+        <p class="kicker">Das Dorfjahr</p>
+        <h2 class="section-title">Der Kalender hängt am Zaun.</h2>
+      </div>
+      <ol class="timeline reveal d1">
+        <li>
+          <time>Frühjahr</time>
+          <div>
+            <strong>Maifeier</strong>
+            <p class="mute">In Jahren ohne Turnier: Voltigierauftritt, Spiel, Essen auf dem Reitplatz.</p>
+          </div>
+        </li>
+        <li>
+          <time>Sommer</time>
+          <div>
+            <strong>Turnier, alle zwei Jahre</strong>
+            <p class="mute">Reit- und Springturnier auf dem Platz, den Ehrenamtliche nach der Wende neu gebaut haben.</p>
+          </div>
+        </li>
+        <li>
+          <time>Herbst</time>
+          <div>
+            <strong>Pferdetag</strong>
+            <p class="mute">Geländeritt durch Gieseritz und Umfelde, Kutschgespanne, Halali, gemeinsames Essen.</p>
+          </div>
+        </li>
+        <li>
+          <time>Winter</time>
+          <div>
+            <strong>Weihnachtsfeier der Voltis</strong>
+            <p class="mute">Jahresabschluss der Gruppe — und Training, sobald der Platz es zulässt.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band-moss band">
+    <div class="page-width split">
+      <div class="reveal">
+        <p class="kicker">Mitmachen</p>
+        <h2 class="section-title">Kein Formular.<br />Ein Anruf.</h2>
+        <p class="lede">Die Übungsleiterinnen nehmen Kinder in die Gruppe auf. Der Vorsitzende spricht für den Verein. Adressen stehen, weil jemand abhebt.</p>
+        <p style="margin-top: 28px;"><a class="btn btn-light" href={withBase('/mitmachen')}>So geht der Einstieg</a></p>
+      </div>
+      <div class="card-grid" style="grid-template-columns: 1fr;">
+        <a class="person reveal d1" href={verena.tel}>
+          <p class="kicker">Voltigieren</p>
+          <h3>{verena.name}</h3>
+          <span>{verena.phone}</span>
+        </a>
+        <a class="person reveal d2" href={site.chair.tel}>
+          <p class="kicker">{site.chair.role}</p>
+          <h3>{site.chair.name}</h3>
+          <span>{site.chair.phone}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+---
+
+<Layout
+  title="Feste — VRG Gieseritz"
+  description="Maifeier, Trainingslager und Auftritte der Voltigier- und Reitgemeinschaft Gieseritz."
+  ogImage={site.photos.maibaum.src}
+>
+  <section class="page-hero page-width">
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker reveal">Feste</p>
+        <h1 class="section-title reveal d1">Der Platz ist auch ein Festplatz.</h1>
+        <p class="lede reveal d2">Wenn kein Turnierjahr ist, steht der Maibaum. Die Voltigiergruppe trägt das Jahr: Camp, Auftritte, Weihnachten.</p>
+      </div>
+      <div>
+        <div class="frame reveal d1" style="aspect-ratio: 4 / 3;">
+          <img src={withBase(site.photos.maibaum.src)} alt={site.photos.maibaum.alt} width="1200" height="900" />
+        </div>
+        <p class="caption">Maifeier auf dem Reitplatz</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width card-grid">
+      <div class="person reveal">
+        <p class="kicker">Ungerade Jahre</p>
+        <h3>Maifeier</h3>
+        <p class="mute">Höhepunkt ist der Auftritt der Voltigiergruppe. Spiel, Essen, Nachbarn. Kein Eintrittsritual — kommen.</p>
+      </div>
+      <div class="person reveal d1">
+        <p class="kicker">Gruppe</p>
+        <h3>Trainingslager</h3>
+        <p class="mute">Ein Camp im Jahr. Technik, Pferde, Zusammenhalt — außerhalb des Alltagszauns.</p>
+      </div>
+      <div class="person reveal d2">
+        <p class="kicker">Gruppe</p>
+        <h3>Auftritte</h3>
+        <p class="mute">Die Voltis zeigen Figuren auf Festen in der Region. Weihnachten schließt das Jahr.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

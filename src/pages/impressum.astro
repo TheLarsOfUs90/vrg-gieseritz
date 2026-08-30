@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+
+<Layout title={`Impressum — ${site.shortName}`} description={`Impressum der ${site.legalName}.`}>
+  <section class="page-width" style="padding: 88px 0 40px;">
+    <div class="prose">
+      <h1>Impressum</h1>
+      <p><strong>Angaben gemäß § 5 DDG</strong></p>
+      <p>
+        {site.legalName}<br />
+        {site.address.street}<br />
+        {site.address.zip} {site.address.city} {site.address.district}
+      </p>
+      <p>
+        Vertreten durch {site.chair.name} ({site.chair.role})<br />
+        Telefon: <a href={site.chair.tel}>{site.chair.phone}</a><br />
+        E-Mail: <a href={`mailto:${site.chair.email}`}>{site.chair.email}</a>
+      </p>
+      <h2>Registereintrag</h2>
+      <p>Vereinsregister {site.register.number}<br />{site.register.court}</p>
+      <h2>Steuernummer</h2>
+      <p>{site.tax.office}<br />{site.tax.number}</p>
+      <h2>Bankverbindung</h2>
+      <p>
+        {site.bank.name}<br />
+        IBAN {site.bank.iban}<br />
+        BIC {site.bank.bic}
+      </p>
+      <h2>Haftung für Inhalte und Links</h2>
+      <p>Als Verein sind wir für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Für Inhalte verlinkter Seiten (OpenStreetMap) übernehmen wir keine Gewähr.</p>
+    </div>
+  </section>
+</Layout>

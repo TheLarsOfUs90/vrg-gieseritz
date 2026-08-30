@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thelarsofus90.github.io/vrg-gieseritz/sitemap-index.xml

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { mapUrl, site, withBase } from '../data/site';
+---
+
+<Layout
+  title={`Kontakt — ${site.shortName}`}
+  description={`Kontakt zur ${site.legalName} in ${site.address.city} ${site.address.district}.`}
+>
+  <section class="page-hero page-width">
+    <p class="kicker reveal">Kontakt</p>
+    <h1 class="section-title reveal d1">Menschen, keine Maske.</h1>
+    <p class="lede reveal d2">Diese Website speichert keine Nachrichten. Telefon und E-Mail gehen direkt an den Verein.</p>
+  </section>
+
+  <section class="band">
+    <div class="page-width card-grid">
+      <a class="person reveal" href={site.chair.tel}>
+        <p class="kicker">{site.chair.role}</p>
+        <h3>{site.chair.name}</h3>
+        <span>{site.chair.phone}</span>
+      </a>
+      <a class="person reveal d1" href={`mailto:${site.chair.email}`}>
+        <p class="kicker">E-Mail</p>
+        <h3>{site.chair.email}</h3>
+        <span>Verein, Termine, Mitgliedschaft</span>
+      </a>
+      <div class="person reveal d2">
+        <p class="kicker">Anschrift</p>
+        <h3>{site.address.street}</h3>
+        <p class="mute">{site.address.zip} {site.address.city}<br />{site.address.district}</p>
+        <p><a href={mapUrl} rel="noopener noreferrer">OpenStreetMap ↗</a></p>
+      </div>
+    </div>
+    <div class="page-width" style="margin-top: 48px;">
+      <p class="kicker reveal">Voltigieren</p>
+      <div class="card-grid" style="margin-top: 16px;">
+        {site.trainers.map((person, index) => (
+          <a class:list={['person', 'reveal', index === 1 && 'd1']} href={person.tel}>
+            <p class="kicker">{person.role}</p>
+            <h3>{person.name}</h3>
+            <span>{person.phone}</span>
+          </a>
+        ))}
+        <a class="person reveal d2" href={withBase('/mitmachen')}>
+          <p class="kicker">Einstieg</p>
+          <h3>Probetraining</h3>
+          <span>Was Sie wissen sollten, bevor Sie anrufen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

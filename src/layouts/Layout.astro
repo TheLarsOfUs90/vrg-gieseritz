@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+import { addressLine, mapUrl, site, withBase } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  cover?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title = site.shortName,
+  description = site.description,
+  cover = false,
+  ogImage = site.photos.hero.src
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const relative = path.slice(base.length) || '/';
+  return relative === href || (href !== '/' && relative.startsWith(href));
+};
+const canonical = Astro.url;
+const og = new URL(withBase(ogImage), Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <meta name="theme-color" content="#141C16" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={og.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+    <header class:list={['site-nav', { 'is-cover': cover }]} data-nav>
+      <div class="nav-inner">
+        <a href={withBase('/')} class="brand" aria-label="VRG Gieseritz Startseite">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          VRG <small>Gieseritz</small>
+        </a>
+        <nav id="site-menu" class="nav-links" aria-label="Hauptnavigation">
+          <a href={withBase('/voltigieren')} aria-current={isCurrent('/voltigieren') ? 'page' : undefined}>Voltigieren</a>
+          <a href={withBase('/verein')} aria-current={isCurrent('/verein') ? 'page' : undefined}>Verein</a>
+          <a href={withBase('/termine')} aria-current={isCurrent('/termine') ? 'page' : undefined}>Pferdetag</a>
+          <a href={withBase('/aktivitaeten')} aria-current={isCurrent('/aktivitaeten') ? 'page' : undefined}>Feste</a>
+          <a href={withBase('/mitmachen')} class="nav-cta" aria-current={isCurrent('/mitmachen') ? 'page' : undefined}>Mitmachen</a>
+        </nav>
+        <button id="mobile-menu-btn" class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menü öffnen">☰</button>
+      </div>
+    </header>
+
+    <main id="inhalt" class:list={['main-content', { 'is-cover': cover }]}>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-width footer-grid">
+        <div>
+          <a href={withBase('/')} class="brand">
+            <span class="brand-mark" aria-hidden="true"><span></span></span>
+            VRG <small style="color: var(--straw);">Gieseritz</small>
+          </a>
+          <p class="footer-meta">{site.legalName}</p>
+          <p class="footer-meta">{addressLine}</p>
+        </div>
+        <div>
+          <p class="footer-label">Verein</p>
+          <div class="footer-links">
+            <a href={withBase('/voltigieren')}>Voltigieren</a>
+            <a href={withBase('/mitmachen')}>Probetraining</a>
+            <a href={withBase('/kontakt')}>Kontakt</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-label">Rechtliches</p>
+          <div class="footer-links">
+            <a href={withBase('/impressum')}>Impressum</a>
+            <a href={withBase('/datenschutz')}>Datenschutz</a>
+            <a href={mapUrl} rel="noopener noreferrer">Karte (OpenStreetMap)</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script is:inline src={withBase('/ui.js')} defer></script>
+  </body>
+</html>

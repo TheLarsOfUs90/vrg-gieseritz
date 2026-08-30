@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+---
+
+<Layout
+  title="Der Verein — VRG Gieseritz"
+  description="Geschichte der Voltigier- und Reitgemeinschaft Gieseritz e. V. von der GST-Reitgruppe bis heute."
+  ogImage={site.photos.archive.src}
+>
+  <section class="page-hero page-width">
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker reveal">Der Verein</p>
+        <h1 class="section-title reveal d1">Aus der Reitgruppe geworden. Im Dorf geblieben.</h1>
+        <p class="lede reveal d2">Keine Marke aus der Stadt. Ein Platz, den Leute mit der Hand gebaut haben, als die Besitzverhältnisse kippten.</p>
+      </div>
+      <div>
+        <div class="frame reveal d1" style="aspect-ratio: 4 / 3;">
+          <img src={withBase(site.photos.archive.src)} alt={site.photos.archive.alt} width="900" height="675" />
+        </div>
+        <p class="caption">Archiv Gieseritz</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width year-grid">
+      <div class="reveal">
+        <p class="kicker">Chronik</p>
+        <h2 class="section-title">Die Linie ist nicht gerade. Sie hält.</h2>
+      </div>
+      <ol class="timeline reveal d1">
+        <li>
+          <time>1950er</time>
+          <div>
+            <strong>GST-Reitgruppe Gieseritz</strong>
+            <p class="mute">Reit-, Spring- und Fahrturniere. Der organisierte Reitsport im Dorf beginnt hier.</p>
+          </div>
+        </li>
+        <li>
+          <time>1960–73</time>
+          <div>
+            <strong>Pause</strong>
+            <p class="mute">Im organisierten Sport wird es still. Die Pferde bleiben, der Verein nicht.</p>
+          </div>
+        </li>
+        <li>
+          <time>{site.founded}</time>
+          <div>
+            <strong>BSG Traktor Gieseritz</strong>
+            <p class="mute">Jürgen Trog und vier Gründungsmitglieder holen den Sport zurück. Voltigieren, Springen, Dressur, Feste.</p>
+          </div>
+        </li>
+        <li>
+          <time>1989</time>
+          <div>
+            <strong>Wende, neue Höfe</strong>
+            <p class="mute">Ställe und Platz gehören nicht mehr selbstverständlich dazu. Die Partnerschaft mit der VRG Westercelle gibt den Namen und den Mut.</p>
+          </div>
+        </li>
+        <li>
+          <time>1990er</time>
+          <div>
+            <strong>Neuer Reitplatz</strong>
+            <p class="mute">Ehrenamtliche Hände. Wieder Turniere alle zwei Jahre. Jährlich Fuchsjagd — heute Pferdetag.</p>
+          </div>
+        </li>
+        <li>
+          <time>Heute</time>
+          <div>
+            <strong>{site.members} Mitglieder</strong>
+            <p class="mute">15 Kinder, rund 20 Ehrenamtliche. Nachwuchsarbeit im Voltigieren ist der Beitrag an Gieseritz und die Dörfer drumherum.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="page-width split">
+      <div>
+        <div class="frame reveal" style="aspect-ratio: 3 / 4; max-width: 420px;">
+          <img src={withBase(site.photos.certificate.src)} alt={site.photos.certificate.alt} width="600" height="800" />
+        </div>
+        <p class="caption">Vereinsurkunde</p>
+      </div>
+      <div class="prose reveal d1">
+        <h2>Vorstand</h2>
+        <p>{site.chair.role} ist {site.chair.name}. Erreichbar unter {site.chair.phone} und <a href={`mailto:${site.chair.email}`}>{site.chair.email}</a>.</p>
+        <p>Registergericht {site.register.court}, {site.register.number}. Gemeinnütziger Verein, {site.tax.office}.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

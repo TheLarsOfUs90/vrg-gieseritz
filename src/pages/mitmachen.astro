@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, withBase } from '../data/site';
+---
+
+<Layout
+  title={`Mitmachen — ${site.shortName}`}
+  description={`Probetraining Voltigieren in Gieseritz: ab ${site.vaultingFromAge} Jahren, zwei Übungsleiterinnen, kein Online-Formular.`}
+>
+  <section class="page-hero page-width">
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker reveal">Einstieg</p>
+        <h1 class="section-title reveal d1">Erst zuschauen.<br />Dann anrufen.</h1>
+        <p class="lede reveal d2">Wir speichern keine Anfragen auf dieser Seite. Sie sprechen mit den Menschen, die am Pferd stehen.</p>
+      </div>
+      <div class="frame reveal d1" style="aspect-ratio: 4 / 3;">
+        <img src={withBase(site.photos.horse.src)} alt={site.photos.horse.alt} width="800" height="600" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="page-width card-grid">
+      <div class="person reveal">
+        <p class="kicker">Für wen</p>
+        <h3>Kinder ab {site.vaultingFromAge}</h3>
+        <p class="mute">Kein Vorwissen. Bauchkribbeln vor dem großen Pferd ist normal und legt sich.</p>
+      </div>
+      <div class="person reveal d1">
+        <p class="kicker">Was passiert</p>
+        <h3>Schritt zuerst</h3>
+        <p class="mute">Longenführer, Gurt, Griff. Galopp ist das Ziel, nicht der erste Tag.</p>
+      </div>
+      <div class="person reveal d2">
+        <p class="kicker">Mitbringen</p>
+        <h3>Feste Schuhe</h3>
+        <p class="mute">Bequeme Kleidung, die dreckig werden darf. Den Rest erklärt die Übungsleitung.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="page-width">
+      <p class="kicker reveal">Wen Sie anrufen</p>
+      <div class="card-grid" style="margin-top: 24px;">
+        {site.trainers.map((person, index) => (
+          <a class:list={['person', 'reveal', index === 1 && 'd1']} href={person.tel}>
+            <p class="kicker">{person.role}</p>
+            <h3>{person.name}</h3>
+            <span>{person.phone}</span>
+          </a>
+        ))}
+        <a class="person reveal d2" href={`mailto:${site.chair.email}`}>
+          <p class="kicker">Verein</p>
+          <h3>{site.chair.name}</h3>
+          <span>{site.chair.email}</span>
+        </a>
+      </div>
+      <p class="mute reveal" style="margin-top: 36px; max-width: 52ch;">
+        Mitgliedschaft und Beiträge klärt der Vorstand. Für Pferdetag-Anmeldungen von Reitern und Gespannen ebenfalls {site.chair.name}, Tel. {site.chair.phone}.
+      </p>
+    </div>
+  </section>
+</Layout>
